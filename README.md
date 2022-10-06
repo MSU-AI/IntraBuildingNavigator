@@ -50,7 +50,7 @@
 </table>
 
 ## Team Members
-Rachel Townson | MSU Computer Science | Class of 2023
+Rachel Townson | Computer Science | Class of 2023
 
 Atharva Kirkole | [Major] | [Grade]
 
