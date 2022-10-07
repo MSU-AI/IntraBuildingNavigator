@@ -58,7 +58,7 @@ Rupesh Seetharaman | [Major] | [Grade]
 
 Stephen Lee | [Major] | [Grade]
 
-Skanda Vijaykumar | [Major] | [Grade]
+Skanda Vijaykumar | Computer Science | Freshman
 
 Mohammad Waleed Bin Munir | [Major] | [Grade]
 
