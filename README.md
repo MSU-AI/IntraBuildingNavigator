@@ -50,7 +50,7 @@
 </table>
 
 ## Team Members
-Rachel Townson | Computer Science | Class of 2023
+Rachel Townson | Computer Science | Senior
 
 Atharva Kirkole | [Major] | [Grade]
 
@@ -63,3 +63,4 @@ Skanda Vijaykumar | [Major] | [Grade]
 Mohammad Waleed Bin Munir | [Major] | [Grade]
 
 Tega Scott-Emuakpor | [Major] | [Grade]
+
