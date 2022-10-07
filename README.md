@@ -52,7 +52,7 @@
 ## Team Members
 Rachel Townson | Computer Science | Senior
 
-Atharva Kirkole | [Major] | [Grade]
+Atharva Kirkole | COmputer Science | Freshman
 
 Rupesh Seetharaman | [Major] | [Grade]
 
