@@ -60,7 +60,7 @@ Stephen Lee | [Major] | [Grade]
 
 Skanda Vijaykumar | Computer Science | Freshman
 
-Mohammad Waleed Bin Munir | [Major] | [Grade]
+Mohammad Waleed Bin Munir | Mechanical Engineering | Sophomore
 
 Tega Scott-Emuakpor | [Major] | [Grade]
 
