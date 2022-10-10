@@ -54,7 +54,7 @@ Rachel Townson | Computer Science | Senior
 
 Atharva Kirkole | COmputer Science | Freshman
 
-Rupesh Seetharaman | [Major] | [Grade]
+Rupesh Seetharaman | Computer Science | Freshman
 
 Stephen Lee | [Major] | [Grade]
 
