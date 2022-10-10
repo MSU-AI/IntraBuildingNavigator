@@ -56,7 +56,7 @@ Atharva Kirkole | COmputer Science | Freshman
 
 Rupesh Seetharaman | [Major] | [Grade]
 
-Stephen Lee | [Major] | [Grade]
+Stephen Lee | Data Science | Master's First Year
 
 Skanda Vijaykumar | Computer Science | Freshman
 
