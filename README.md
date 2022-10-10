@@ -62,5 +62,5 @@ Skanda Vijaykumar | Computer Science | Freshman
 
 Mohammad Waleed Bin Munir | Mechanical Engineering | Sophomore
 
-Tega Scott-Emuakpor | [Major] | [Grade]
+Tega Scott-Emuakpor | [Chemical Engineering] | [Junior]
 
