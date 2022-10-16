@@ -1,4 +1,7 @@
 # IntraBuildingNavigator
+Our goal is to build a "Google Maps"-style application that guides the user around the inside of a building. Our current plan is to develop this project on a small scale for desktop, then eventually scale up to a mobile app. 
+
+We will use AI image/video processing, device location services, and pathfinding algorithms to determine where the user is currently located and what actions they should take to get to their destination. 
 
 ## GitHub Contributors
 <table>
