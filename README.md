@@ -1,5 +1,6 @@
 # IntraBuildingNavigator
 
+## GitHub Contributors
 <table>
   <tbody>
     <tr>
@@ -10,40 +11,40 @@
         <small><b>townsonr</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/AtharvaKirkole">
+        <img src="https://avatars.githubusercontent.com/u/86716884?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>AtharvaKirkole</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/RSeeth947">
+        <img src="https://avatars.githubusercontent.com/u/67927758?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>RSeeth947</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/leestep9">
+        <img src="https://avatars.githubusercontent.com/u/46537881?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>leestep9</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/ProgramRush">
+        <img src="https://avatars.githubusercontent.com/u/87960843?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>ProgramRush</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/mwaleeed">
+        <img src="https://avatars.githubusercontent.com/u/88088085?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>mwaleeed</b></small>
       </td>
       <td align="center">
-        <a href="">
-        <img src="" width="100px;">
+        <a href="https://github.com/tegascott">
+        <img src="https://avatars.githubusercontent.com/u/109388061?v=4" width="100px;">
         </a><br/>
-        <small><b>GitHub username</b></small>
+        <small><b>tegascott</b></small>
       </td>
     </tr>
   </tbody>
@@ -52,7 +53,7 @@
 ## Team Members
 Rachel Townson | Computer Science | Senior
 
-Atharva Kirkole | COmputer Science | Freshman
+Atharva Kirkole | Computer Science | Freshman
 
 Rupesh Seetharaman | Computer Science | Freshman
 
