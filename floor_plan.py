@@ -6,15 +6,9 @@ class FloorPlan:
     def __init__(self):
         self._graph = {}
 
-    def __str__(self):
-        output = ""
-
     class Node:
         def __init__(self, name: str):
             self.name = name
-
-        def __str__(self):
-            return str(self.name)
 
         # types of nodes based on: https://www.researchgate.net/publication/277318124_Generation_of_navigation_graphs_for_indoor_space 
         class Room:

@@ -13,9 +13,6 @@ def main():
     test_floor_plan.add_node(room_2)
 
     test_floor_plan.add_edge(edge_1_to_2)
-    print()
-    print(test_floor_plan._graph)
-    print()
 
 
 if __name__ == '__main__':
