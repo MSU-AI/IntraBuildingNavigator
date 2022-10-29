@@ -10,7 +10,7 @@
         <small><b>townsonr</b></small>
       </td>
       <td align="center">
-        <a href="">
+        <a href="https://github.com/leestep9">
         <img src="" width="100px;">
         </a><br/>
         <small><b>GitHub username</b></small>
