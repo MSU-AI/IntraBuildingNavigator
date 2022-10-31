@@ -31,7 +31,7 @@ def upload_image():
 		flash('Image successfully uploaded and displayed below')
 		locname = location(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		display_name = locname['display_name']
-		return render_template('demo_webapp.html', filename=filename, display_name=display_name)
+		return render_template('demo_webapp.html', filename=filename, display_data=locname)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
 		return redirect(request.url)
