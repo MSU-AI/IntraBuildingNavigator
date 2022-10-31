@@ -69,7 +69,7 @@ Mohammad Waleed Bin Munir | Mechanical Engineering | Sophomore
 Tega Scott-Emuakpor | Chemical Engineering | Junior
 
 
-## How to use:
+## How to use the web app:
 
 ### Required Libraries
 <table>
@@ -90,6 +90,8 @@ Tega Scott-Emuakpor | Chemical Engineering | Junior
     <td>pip install geopy</td>
   </tr>
 </table>
+
+### Instructions
 
 1. install all the required libraries to your Python virtual environment
 2. navigate to the *flask_app* directory (`cd flask_app`)
