@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+  <h1 style="color: #5e9ca0;"> Welcome to <span style="color: #2b2301;"> the Intrabuilding</span> App! </h1>
+
+<body>
+  
+  This App allows you to navigate across buildings on campus
+  <li class="list-group-item active"><h5>Feaured Image</h5></li>
+            <li class="list-group-item">
+                <div class="input-group mb-3">
+                    <div class="custom-file ">
+                        <input type="file"  class="custom-file-input" name="thumbnail" id="thumbnail">
+                    </div>
+                </div>
+                <div class="img-thumbnail  text-center">
+                    <img src="@if(isset($product)) {{asset('storage/'.$product->thumbnail)}} @else {{asset('images/no-thumbnail.jpeg')}} @endif" id="imgthumbnail" class="img-fluid" alt="">
+                </div>
+            </li>
+  <script src="script.js">
+    $(function(){
+$('#thumbnail').on('change', function() {
+    var file = $(this).get(0).files;
+    var reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.addEventListener("load", function(e) {
+    var image = e.target.result;
+$("#imgthumbnail").attr('src', image);
+  </script>
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>

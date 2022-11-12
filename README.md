@@ -68,3 +68,33 @@ Mohammad Waleed Bin Munir | Mechanical Engineering | Sophomore
 
 Tega Scott-Emuakpor | Chemical Engineering | Junior
 
+
+## How to use the web app:
+
+### Required Libraries
+<table>
+  <tr>
+    <th>Library</th>
+    <th>How to install</th>
+  </tr>
+  <tr>
+    <td>Flask for Python</td>
+    <td>pip install flask</td>
+  </tr>
+  <tr>
+    <td>EXIF</td>
+    <td>pip install exif</td>
+  </tr>
+  <tr>
+    <td>GeoPy</td>
+    <td>pip install geopy</td>
+  </tr>
+</table>
+
+### Instructions
+
+1. install all the required libraries to your Python virtual environment
+2. navigate to the *flask_app* directory (`cd flask_app`)
+3. run the *main.py* file (`python main.py`)
+4. open up http://127.0.0.1:8000 in your browser to see the locally-hosted website
+
