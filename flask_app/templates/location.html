@@ -25,7 +25,7 @@
     <img id="output" src="#" height="400" style="display:none">
   {% endif %}
   <br>
-  <form method="post" action="/" enctype="multipart/form-data">
+  <form method="post" action="/locator" enctype="multipart/form-data">
     <dl>
 		<p>
 			<input type="file" name="file" required onchange="loadFile(event)">
@@ -37,7 +37,7 @@
 </form>
 <p>display_name: {{display_data}}</p>
 <p>latitude: {{lat}}</p>
-<p>longitude: {{long}}</p>
+<p>longitude: {{lon}}</p>
 
   
 </body>
