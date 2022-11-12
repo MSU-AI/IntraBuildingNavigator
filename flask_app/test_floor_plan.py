@@ -18,8 +18,13 @@ def main():
 def display_shortest_path(g: FloorPlan, start_location: Node, end_location: Node):
     print("shortest path")
     path = nx.astar_path(g.graph, start_location, end_location)
-    for room in path:
+    output = "{}".format(str(path[0]))
+    print(path[0])
+    for room in path[1:]:
         print(room)
+        output += " -> {}".format(str(room))
+    print(output)
+    return output
 
 def test_floor_plan() -> FloorPlan:
     test_floor_plan = FloorPlan("test")

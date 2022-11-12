@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Intra-Building Navigator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1 style="color: #5e9ca0;"> Welcome to <span style="color: #2b2301;"> the Intrabuilding</span> App! </h1>
+
+    <form action="/" class="inline">
+        <button>Return to Home</button>
+    </form>
+  
+    <p>This App allows you to navigate across buildings on campus</p>
+    <br>
+
+    <form method="post" action="/navigator">
+        <label for="start">Select a start location:</label>
+
+        <select name="start" id="start">
+            <option value="Room 1100">Room 1100</option>
+            <option value="Room 1103">Room 1103</option>
+            <option value="Room 1105">Room 1105</option>
+            <option value="Room 1107">Room 1107</option>
+            <option value="Room 1108">Room 1108</option>
+            <option value="Room 1109">Room 1109</option>
+            <option value="Room 1118">Room 1118</option>
+            <option value="Room 1120">Room 1120</option>
+            <option value="Room 1130">Room 1130</option>
+            <option value="Room 1148">Room 1148</option>
+            <option value="Room 1202">Room 1202</option>
+            <option value="Room 1211">Room 1211</option>
+            <option value="Room 1220">Room 1220</option>
+            <option value="Room 1226">Room 1226</option>
+            <option value="Room 1228">Room 1228</option>
+        </select>
+
+        <label for="end">Select an end location:</label>
+
+        <select name="end" id="end">
+            <option value="Room 1100">Room 1100</option>
+            <option value="Room 1103">Room 1103</option>
+            <option value="Room 1105">Room 1105</option>
+            <option value="Room 1107">Room 1107</option>
+            <option value="Room 1108">Room 1108</option>
+            <option value="Room 1109">Room 1109</option>
+            <option value="Room 1118">Room 1118</option>
+            <option value="Room 1120">Room 1120</option>
+            <option value="Room 1130">Room 1130</option>
+            <option value="Room 1148">Room 1148</option>
+            <option value="Room 1202">Room 1202</option>
+            <option value="Room 1211">Room 1211</option>
+            <option value="Room 1220">Room 1220</option>
+            <option value="Room 1226">Room 1226</option>
+            <option value="Room 1228">Room 1228</option>
+        </select>
+        <input type="submit" value="Find Path"/>
+    </form>
+
+    <br>
+    <p>{{path}}</p>
+
+    
+
+    
+
+
+  
+</body>
+<script>
+</script> 
+
+</html>
