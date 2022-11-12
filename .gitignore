@@ -183,10 +183,14 @@ cython_debug/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python
-.vscode/launch.json
-.gitignore
+.idea/.gitignore
 .idea/IntraBuildingNavigator.iml
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
+.vscode/launch.json
+
+*.JPG
+*.jpeg
+

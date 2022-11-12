@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Intra-Building Navigator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+  
+
+<body>
+  <h1 style="color: #5e9ca0;"> Welcome to <span style="color: #2b2301;"> the Intrabuilding</span> App! </h1>
+
+  <form action="/" class="inline">
+    <button>Return to Home</button>
+  </form>
+  
+  <p>This App allows you to navigate across buildings on campus</p>
+  <br>
+  {% if filename %}
+	  <img src="{{ url_for('display_image', filename=filename) }}" height="400">
+  {% else %}
+    <img id="output" src="#" height="400" style="display:none">
+  {% endif %}
+  <br>
+  <form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" required onchange="loadFile(event)">
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Find Image Location">
+	  </p>
+</form>
+<p>display_name: {{display_data}}</p>
+<p>latitude: {{lat}}</p>
+<p>longitude: {{long}}</p>
+
+  
+</body>
+<script>
+  var loadFile = function(event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.style = "none"
+  };
+</script> 
+
+</html>
