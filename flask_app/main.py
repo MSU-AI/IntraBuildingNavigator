@@ -65,6 +65,16 @@ def find_path():
 	path = display_shortest_path(g, Room(start_name), Room(end_name))
 	return render_template("astar.html", path=path)
 
+@app.route('/getpath', methods=['POST'])
+def get_path():
+	start_name = request.form.get("start")
+	end_name = request.form.get("end")
+	print(start_name)
+	print(end_name)
+	g = engineering_building_first_floor()
+	path = display_shortest_path(g, Room(start_name), Room(end_name))
+	return path
+
 if __name__ == "__main__":
 	app.run(port=8000)
 	

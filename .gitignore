@@ -194,3 +194,4 @@ cython_debug/
 *.JPG
 *.jpeg
 
+.idea/workspace.xml
