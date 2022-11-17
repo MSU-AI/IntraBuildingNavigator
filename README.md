@@ -93,7 +93,8 @@ Tega Scott-Emuakpor | Chemical Engineering | Junior
 
 ### Instructions
 
-1. install all the required libraries to your Python virtual environment
+0. create a virtual environment (`python -m venv env`)
+1. install all the required libraries to your Python virtual environment (`pip install -r requirements.txt`)
 2. navigate to the *flask_app* directory (`cd flask_app`)
 3. run the *main.py* file (`python main.py`)
 4. open up http://127.0.0.1:8000 in your browser to see the locally-hosted website
