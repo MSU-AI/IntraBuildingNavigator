@@ -1,6 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:camera_camera/camera_camera.dart';
 import 'package:intra_building/api.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:exif/exif.dart';
 
 // import 'API.dart';
 
@@ -165,6 +169,14 @@ class _PhotoPageState extends State<PhotoPage> {
   String _latitude = "";
   String _longitude = "";
 
+  String _filename = "before.png";
+
+  XFile? _image;
+  final _picker = ImagePicker();
+  Uint8List? _byteImage;
+
+  String _exifData = "";
+
   void _umidk() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -173,6 +185,57 @@ class _PhotoPageState extends State<PhotoPage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
     });
+  }
+
+  // Future getImage() async {
+  //   var image = await picker.getImage(source: ImageSource.gallery);
+  //   setState(() {
+  //     if (image != null) {
+  //       _image = File(image.path);
+  //     }
+  //   });
+  // }
+
+  Future getImage() async {
+    // Pick an image
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image == null) return;
+
+    //TO convert Xfile into file
+    File path = File(image.path);
+
+    Uint8List? img = await image.readAsBytes();
+    _byteImage = img;
+
+    setState(() {
+      _image = image;
+      _byteImage = img;
+    });
+
+    String exif = await getExifFromFile();
+
+    setState(() {
+      _exifData = exif;
+    });
+
+    print('Image picked');
+  }
+
+  Future<String> getExifFromFile() async {
+    if (_image == null) {
+      return "";
+    }
+
+    var bytes = await _image!.readAsBytes();
+    var tags = await readExifFromBytes(bytes);
+    var sb = StringBuffer();
+
+    tags.forEach((k, v) {
+      sb.write("$k: $v \n");
+    });
+
+    return sb.toString();
   }
 
   @override
@@ -216,15 +279,34 @@ class _PhotoPageState extends State<PhotoPage> {
             const Text(
               '\n',
             ),
+            if (_byteImage != null)
+              Image(
+                image: MemoryImage(_byteImage!),
+                height: 300,
+              ),
+            const Text(
+              '\n',
+            ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                getImage();
+              },
               child: Text('Choose File'),
             ),
             const Text(
               '\n',
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                PostPhoto(_byteImage);
+                // setState(() {
+                //   _address =
+                //       "Central Services, Spartan Way, East Lansing, Ingham County, Michigan, 48825, United States";
+                //   _latitude = "42 72768145";
+                //   _longitude = "-84 48340820582806";
+                // });
+                // printExifOf('assets/AI_CLUB_TEST.JPG');
+              },
               child: Text('Find Image Location'),
             ),
             const Text(
@@ -249,6 +331,29 @@ class _PhotoPageState extends State<PhotoPage> {
       // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  // Future getImage() async {
+  //   var image = await picker.getImage(source: ImageSource.gallery);
+  //   setState(() {
+  //     if (image != null) {
+  //       _image = File(image.path);
+  //     }
+  //   });
+  // }
+
+  // /// Get from gallery
+  // _getFromGallery() async {
+  //   PickedFile pickedFile = await ImagePicker().getImage(
+  //     source: ImageSource.gallery,
+  //     maxWidth: 1800,
+  //     maxHeight: 1800,
+  //   );
+  //   if (pickedFile != null) {
+  //     setState(() {
+  //       imageFile = File(pickedFile.path);
+  //     });
+  //   }
+  // }
 }
 
 class NavigatorPage extends StatefulWidget {
@@ -441,7 +546,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
               '\n',
             ),
             Text(
-              'address: $QueryText',
+              '$QueryText',
             ),
           ],
         ),
