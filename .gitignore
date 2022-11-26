@@ -195,3 +195,4 @@ cython_debug/
 *.jpeg
 
 .idea/workspace.xml
+flask_app/static/uploads/temp.txt
