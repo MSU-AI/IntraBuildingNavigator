@@ -89,13 +89,24 @@ Tega Scott-Emuakpor | Chemical Engineering | Junior
     <td>GeoPy</td>
     <td>pip install geopy</td>
   </tr>
+  <tr>
+    <td>Flutter</td>
+    <td>https://docs.flutter.dev/get-started/install</td>
+  </tr>
 </table>
 
 ### Instructions
 
 0. create a virtual environment (`python -m venv env`)
 1. install all the required libraries to your Python virtual environment (`pip install -r requirements.txt`)
-2. navigate to the *flask_app* directory (`cd flask_app`)
-3. run the *main.py* file (`python main.py`)
-4. open up http://127.0.0.1:8000 in your browser to see the locally-hosted website
+2. install the Flutter SDK (instructions here: https://docs.flutter.dev/get-started/install
+3. open up two terminals
+4. in the first terminal, 
+    1. navigate to the *flask_app* directory (`cd flask_app`)
+      2. run the *main.py* file (`python main.py`)
+      3. optional: open up http://127.0.0.1:8000 in your browser to see the locally-hosted website
+5. in the second terminal,
+      1. navigate to the *intra_bulding* directory (`cd intra_bulding`)
+      2. run the *main.dart* file (`flutter run`) and select your device
+            1. to automatically run on chrome, use `flutter run -d chrome`
 
