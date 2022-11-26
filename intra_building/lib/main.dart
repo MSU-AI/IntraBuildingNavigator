@@ -297,14 +297,13 @@ class _PhotoPageState extends State<PhotoPage> {
               '\n',
             ),
             OutlinedButton(
-              onPressed: () {
-                PostPhoto(_byteImage);
-                // setState(() {
-                //   _address =
-                //       "Central Services, Spartan Way, East Lansing, Ingham County, Michigan, 48825, United States";
-                //   _latitude = "42 72768145";
-                //   _longitude = "-84 48340820582806";
-                // });
+              onPressed: () async {
+                Map<String, dynamic> response = await PostPhoto(_byteImage);
+                setState(() {
+                  _address = response["address"]!;
+                  _latitude = response["latitude"]!;
+                  _longitude = response["longitude"]!;
+                });
                 // printExifOf('assets/AI_CLUB_TEST.JPG');
               },
               child: Text('Find Image Location'),
@@ -313,13 +312,13 @@ class _PhotoPageState extends State<PhotoPage> {
               '\n',
             ),
             Text(
-              'address: $_address',
+              'Address: $_address',
             ),
             Text(
-              'latitude: $_latitude',
+              'Latitude: $_latitude',
             ),
             Text(
-              'longitude: $_longitude',
+              'Longitude: $_longitude',
             ),
           ],
         ),

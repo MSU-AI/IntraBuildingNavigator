@@ -57,12 +57,6 @@ def photo_locator():
 		flash('No file part')
 		return redirect(request.url)
 	file = request.files['picture']
-	# image_bytes = request.files['picture']
-	# in_memory_file = io.BytesIO()
-	# image_bytes.save(in_memory_file)
-	# data = np.fromstring(in_memory_file.getvalue(), dtype=np.uint8)
-	# file = cv2.imdecode(data, 1)
-	# # file = Image(base64(image_bytes, 'utf-8'))
 
 	if file.filename == '':
 		flash('No image selected for uploading')
@@ -90,7 +84,11 @@ def photo_locator():
 		display_name = locname['display_name']
 		lat = locname['lat']
 		lon = locname['lon']
-		return display_name
+		return {
+			"address": display_name,
+			"latitude": lat,
+			"longitude": lon
+		}
 		# return render_template('location.html', filename=filename, display_data=display_name, lat=lat, lon=lon)
 	else:
 		flash('Allowed image types are -> png, jpg, jpeg, gif')
