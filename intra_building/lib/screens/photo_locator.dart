@@ -1,44 +1,14 @@
 import 'dart:typed_data';
 
+import 'package:exif/exif.dart';
 import 'package:flutter/material.dart';
-import 'package:intra_building/api.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:exif/exif.dart';
-import 'package:intra_building/screens/navigator.dart';
-import 'package:intra_building/screens/photo_locator.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:intra_building/api.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Intra-Building Navigator'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class PhotoPage extends StatefulWidget {
+  const PhotoPage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -52,21 +22,62 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<PhotoPage> createState() => _PhotoPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _PhotoPageState extends State<PhotoPage> {
+  String _address = "";
+  String _latitude = "";
+  String _longitude = "";
 
-  void _incrementCounter() {
+  String _filename = "before.png";
+
+  XFile? _image;
+  final _picker = ImagePicker();
+  Uint8List? _byteImage;
+
+  String _exifData = "";
+
+  Future getImage() async {
+    // Pick an image
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image == null) return;
+
+    //TO convert Xfile into file
+    File path = File(image.path);
+
+    Uint8List? img = await image.readAsBytes();
+    _byteImage = img;
+
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _image = image;
+      _byteImage = img;
     });
+
+    String exif = await getExifFromFile();
+
+    setState(() {
+      _exifData = exif;
+    });
+
+    print('Image picked');
+  }
+
+  Future<String> getExifFromFile() async {
+    if (_image == null) {
+      return "";
+    }
+
+    var bytes = await _image!.readAsBytes();
+    var tags = await readExifFromBytes(bytes);
+    var sb = StringBuffer();
+
+    tags.forEach((k, v) {
+      sb.write("$k: $v \n");
+    });
+
+    return sb.toString();
   }
 
   @override
@@ -104,36 +115,53 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
-              '\n\nThis app allows you to navigate across buildings on campus',
+              '\n\nUpload your photos to see their metadata',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const Text(
               '\n',
             ),
-            OutlinedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const PhotoPage(title: 'Photo Locator');
-                }));
-              },
-              child: Text('Photo Locator'),
-            ),
+            if (_byteImage != null)
+              Image(
+                image: MemoryImage(_byteImage!),
+                height: 300,
+              ),
             const Text(
               '\n',
             ),
             OutlinedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const NavigatorPage(title: 'Navigator');
-                }));
+                getImage();
               },
-              child: Text('Navigator'),
+              child: Text('Choose File'),
             ),
-
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headline4,
-            // ),
+            const Text(
+              '\n',
+            ),
+            OutlinedButton(
+              onPressed: () async {
+                Map<String, dynamic> response = await PostPhoto(_byteImage);
+                setState(() {
+                  _address = response["address"]!;
+                  _latitude = response["latitude"]!;
+                  _longitude = response["longitude"]!;
+                });
+                // printExifOf('assets/AI_CLUB_TEST.JPG');
+              },
+              child: Text('Find Image Location'),
+            ),
+            const Text(
+              '\n',
+            ),
+            Text(
+              'Address: $_address',
+            ),
+            Text(
+              'Latitude: $_latitude',
+            ),
+            Text(
+              'Longitude: $_longitude',
+            ),
           ],
         ),
       ),
